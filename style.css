@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100% ;
+  min-height: 15vh;
+  background-color: #f7e3eb;
+}
+header #links {
+  width: 75%;
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  justify-content: space-between;
+  }
+header #links li{
+    list-style: none;
+  }
+  header #links li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    }
+    header #links li:hover a{
+      color:rgb(167, 156, 163);
+      background-color: #f7c3e1;
+      box-sizing: border-box;
+      outline: none;
+  border: none;
+  border-radius: 40px;
+  height: 100px;
+  min-width: 50px;
+    }
+    .container{
+      width:100%;
+      height:auto;
+      color:#fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    }
+    .container content {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+    .container .content h1{
+      z-index: 3;
+      position: relative;
+      font-size: 50px;
+      color: #222;
+      font-family: 'Montserrat', sans-serif;
+      float: left;
+      left: -30px;
+      margin-top: 1em;
+      margin-left: 1em;
+    }
+    .container .content h3{
+      font-size: 25px;
+      color: #444;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 450;
+      margin-left: 3em;
+    }
+    .container .content button{
+      background-color: #ee91ee;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 23px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 300px;
+  height: 90px;
+    }
+ .container .content button:hover{
+background-color: rgb(169, 189, 189);
+ }
+ #button-1{
+ background-color: #cd48d1;
+ }
+ .container .content #button-1:hover {
+  background-color: rgb(135, 168, 168);;
+   }
+   .prikol{
+      display: flex;
+    background-image: url('\фон1.png');
+   }
+   .image-1{
+    position: relative;
+   width: 100px;
+   height: 800px;
+   margin-top: 2em;
+   }
+   .image-2 button{
+    border-radius: 48px;
+    color:blueviolet;
+    float: right;
+    position: relative;
+    left: 700px;
+    top: 200px;
+   }
+   h4{
+    font-size: 25px;
+  margin-left: 2em;
+  color: #444;
+  font-family: 'Montserrat', sans-serif;
+   }
+   footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100% ;
+    min-height: 30vh;
+  }
+  footer h3{
+    font-size: 25px;
+    color: #383434;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 450;
+    margin-left: 3em;
+    align-items: center;
+    justify-content: center;
+  }

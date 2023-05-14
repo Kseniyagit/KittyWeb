@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рисовашечка)))</title>
+    <script src="Node.js"></script>
+    <style>
+        @import url('https://fonts.googlrapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background: color #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100% ;
+  min-height: 15vh;
+  background-color: #e5c8f8;
+}
+header #links {
+  width: 75%;
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  justify-content: space-between;
+  }
+header #links li{
+    list-style: none;
+  }
+  header #links li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    }
+    header #links li:hover a{
+      color:rgb(167, 156, 163);
+      background-color: #f7c3e1;
+      box-sizing: border-box;
+      outline: none;
+  border: none;
+  border-radius: 40px;
+  height: 100px;
+  min-width: 50px;
+    }
+    .container{
+      width:100%;
+      height:auto;
+      color:#fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    }
+    .container content {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+    .container .content h3{
+      font-size: 25px;
+      color: #444;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 450;
+      margin-left: 3em;
+    }
+        canvas{
+            border: 2px solid #b246b4
+        }
+        .toolbox{
+            background-color: #b246b4;
+            border: 1px solid #b246b4;
+            display:flex;
+            width: 385px;
+            padding: 1 rem;
+        }
+        .toolbox>*{
+            background-color: #fff;
+            border: none;
+            display:inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            height: 50px;
+            width: 50px;
+            margin: 0.25rem;
+            padding: 0.25rem;
+            cursor: pointer;
+        }
+        .toolbox>*:last-child{
+            margin-left: auto;  
+        }
+        button, #size, input{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+  <div class="logo">
+    <img src="Лого2.png" alt="" style = "max-width: 200px">
+  </div>
+    <ul id = "links">
+    <li><a href="онлайн-курсы.html" onclick="redirectToPage(this)">Онлайн-курсы</a></li>
+    <li><a href="draw.html" onclick="redirectToPage(this)">Бесплатно</a></li>
+    <li><a href="draw.html" onclick="redirectToPage(this)">Центр карьеры</a></li>
+    <li><a href="draw.html" onclick="redirectToPage(this)">Контакты</a></li>
+    <li><a href="draw.html" onclick="redirectToPage(this)">Медиа</a></li>
+    <li><a href="draw.html" onclick="redirectToPage(this)">Корпоративное обучение</a></li>
+    </ul>
+    </header>
+   <div class="container">
+    <div class="content">
+  <h3>Здесть могла быть необходимая информация, но главный и единственный программист сейчас готовится к сессии, поэтому предлагает вам порисовать:)</h3>
+</div>
+</div>
+</div>
+  <canvas id = "canvas" wudth = "380" height = "380"> </canvas>
+    <div class = "toolbox">
+<button id = "decrease">-</button>
+<span id="size">10</span>
+<button id = "increase">+</button>
+<input type="color" id = "color">
+<button id = "clear">X</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const increaseBth = document.getElementById('increase');
+        const decreaseBth = document.getElementById('decrease');
+        const sizeEl = document.getElementById('size');
+        const colorEl= document.getElementById('color');
+        const clearEl = document.getElementById('clear');
+        const ctx = canvas.getContext('2d');
+        let size = 10;
+        let isPressed = false;
+        colorEl.value = 'black'
+        let color = colorEl.value
+        let x
+        let y
+        canvas.addEventListener('mousedown', (e) => {
+            isPressed = true
+            x = e.offsetX
+            y = offsetY
+        })
+        document.addEventListener('mouseup', (e) => {
+            isPressed = false
+            x = undefined
+            y = undefined
+        })
+        canvas.addEventListener('mousemove', (e) => {
+            if (isPressed) 
+           {
+            const x2 = e.offsetX
+            const y2 = e.offsetY
+            drawCircle(x2,y2)
+            drawLine(x,y,x2,y2)
+            x = x2
+            y = y2
+           }
+        })
+           function drawCircle(x, y){
+            ctx.beginPath();
+            ctx.arc(x,y,size,0,Math.PI*2)
+            ctx.fillStyle = color
+            ctx.fill()
+           }
+           function drawLine(x1, y1, x2,y2){
+            ctx.beginPath();
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.strokeStyle = color
+            ctx.lineWidth = size*2
+            ctx.stroke()
+           }
+           function updateSizeOnScreen(){
+            sizeEl.innerText = size
+           }
+       increaseBth.addEventListener('click', () => {
+        size+=5
+        if(size>50){
+            size = 50
+        }
+        updateSizeOnScreen()
+       })
+       decreaseBth.addEventListener('click', () => {
+        size-=5
+        if(size<5){
+            size = 5
+        }
+        updateSizeOnScreen()
+       })
+       colorEl.addEventListener('change', (e) =>
+       color = e.target.value
+       )
+       clearEl.addEventListener('click', () => ctx.clearRect(0,0,canvas.width, canvas.height))
+    </script>
+</body>
+</html>
