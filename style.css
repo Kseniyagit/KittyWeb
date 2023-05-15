@@ -5,6 +5,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+wrapper{
+overflow:hidden;
+}
 header {
   display: flex;
   align-items: center;
